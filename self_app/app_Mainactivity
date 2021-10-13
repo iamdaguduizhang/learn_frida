@@ -1,0 +1,67 @@
+package com.example.mytestapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    private Button testButton;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        testButton = findViewById(R.id.hello);
+        testButton.setOnClickListener(new MyButtonListener());
+    }
+    private class MyButtonListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            int c = add(4, 5);
+            Toast.makeText(MainActivity.this,"使用内部类实现Button点击事件" + c,Toast.LENGTH_LONG).show();
+
+        }
+    }
+    public int add(int a, int b) {
+        int c = a + b;
+        System.out.println(c);
+        return c;
+    }
+
+}
+
+//import android.support.v7.app.AppCompatActivity;
+//import android.os.Bundle;
+//import android.util.Log;
+//
+//import androidx.appcompat.app.AppCompatActivity;
+//
+//public class MainActivity extends AppCompatActivity {
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        while (true){
+//
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//
+//            fun(50,30);
+//        }
+//    }
+//
+//    void fun(int x , int y ){
+//        Log.d("Sum" , String.valueOf(x+y));
+//    }
+//
+//}
